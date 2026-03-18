@@ -44,7 +44,8 @@ Consumo analítico:
         ↓
 App web:
     - inserción de nuevos pedidos en web_orders
-    
+
+```  
 ---
 
 ## Explicación del flujo
@@ -89,7 +90,7 @@ roseamor-fullstack-data/
 │       └── index.html
 │
 └── README.md
-
+```
 ## 4. Limpieza y calidad de datos
 
 Antes de construir el modelo analítico, revisé la calidad de los datos importados para identificar problemas que pudieran afectar los KPIs y el dashboard.
@@ -358,7 +359,7 @@ El archivo se encuentra en:
 
 ```text
 dashboard/RoseAmor_Dashboard.pbix
-
+```
 ## 8. Aplicación web para registrar pedidos
 
 Además del procesamiento analítico, desarrollé una aplicación web simple para registrar pedidos de forma manual.
@@ -428,7 +429,7 @@ Para verificarlos, se puede ejecutar:
 SELECT *
 FROM dbo.web_orders
 ORDER BY id DESC;
-
+```
 ## 9. Cómo ejecutar la solución en otra computadora
 
 A continuación detallo los pasos para ejecutar este proyecto desde cero en otra máquina.
