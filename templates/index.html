@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoseAmor | Registro de pedidos</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div>
+                <h1>Registro de pedidos</h1>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Nuevo pedido</h2>
+
+                {% if message %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endif %}
+
+                {% if error %}
+                    <div class="alert alert-error">{{ error }}</div>
+                {% endif %}
+
+                <form method="post" action="/save" class="form">
+                    <div class="form-group">
+                        <label for="order_id">Order ID</label>
+                        <input type="text" id="order_id" name="order_id" maxlength="20" required
+                               value="{{ form_data.order_id }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer_id">Customer ID</label>
+                        <input type="text" id="customer_id" name="customer_id" maxlength="20" required
+                               value="{{ form_data.customer_id }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sku">SKU</label>
+                        <input type="text" id="sku" name="sku" maxlength="20" required
+                               value="{{ form_data.sku }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" min="1" required
+                               value="{{ form_data.quantity }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="unit_price">Unit Price</label>
+                        <input type="number" id="unit_price" name="unit_price" min="0.01" step="0.01" required
+                               value="{{ form_data.unit_price }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order_date">Order Date</label>
+                        <input type="date" id="order_date" name="order_date" required
+                               value="{{ form_data.order_date }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="channel">Channel</label>
+                        <input type="text" id="channel" name="channel" maxlength="50" required
+                               value="{{ form_data.channel }}">
+                    </div>
+
+                    <button type="submit" class="btn-primary">Guardar pedido</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Últimos pedidos registrados</h2>
+
+                {% if recent_orders %}
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Order</th>
+                                    <th>Customer</th>
+                                    <th>SKU</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Date</th>
+                                    <th>Channel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in recent_orders %}
+                                <tr>
+                                    <td>{{ row.id }}</td>
+                                    <td>{{ row.order_id }}</td>
+                                    <td>{{ row.customer_id }}</td>
+                                    <td>{{ row.sku }}</td>
+                                    <td>{{ row.quantity }}</td>
+                                    <td>${{ "%.2f"|format(row.unit_price) }}</td>
+                                    <td>{{ row.order_date }}</td>
+                                    <td>{{ row.channel }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="empty">Todavía no hay pedidos registrados.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
