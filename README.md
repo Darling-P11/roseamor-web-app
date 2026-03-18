@@ -44,7 +44,8 @@ Consumo analítico:
         ↓
 App web:
     - inserción de nuevos pedidos en web_orders
-    
+
+```  
 ---
 
 ## Explicación del flujo
