@@ -579,3 +579,6 @@ Decidí guardar los registros de la app en una tabla separada (`web_orders`) par
 ### Validaciones dobles
 
 Implementé validaciones tanto en el formulario como en el backend, para reducir errores de entrada y proteger la persistencia en la base de datos.
+
+<img width="1918" height="998" alt="Captura de pantalla 2026-03-18 032721" src="https://github.com/user-attachments/assets/9135c381-6d16-471c-a298-11b7443ab4af" />
+
